@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="incrementCount">Cliquer</button>
+    {{count}}
   </div>
 </template>
 
@@ -12,6 +12,18 @@ export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  computed: {
+    count: function()
+    {
+      return this.$store.state.count;
+    }
+  },
+  methods: {
+    incrementCount: function()
+    {
+        this.$store.dispatch("itCount");
+    }
   }
 }
 </script>
